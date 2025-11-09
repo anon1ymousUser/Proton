@@ -1,25 +1,25 @@
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Rain-Design/PPHUD/main/Library.lua'))()
 local lplr = game.Players.LocalPlayer
-local Window = Library:New({
-    Name = "Cracs",
+local Window = Library:Window({
+    Text = "cracs",
 })
 
-local Page = Window:Page({
-    Name = "Player"
+local Tab = Window:Tab({
+    Text = "Player"
 })
 
-local Section = Page:Section({
-    Name = "Movement",
-    Fill = true,
+local Section = Tab:Section({
+    Text = "Movement",
     Side = "Left"
 })
 
 
 local walkchanger = Section:Slider({
-    Name = "Speed",
-    Min = 0,
-    Max = 100,
+    Text = "Speed",
+    Minimum = 0,
+    Maximum = 100,
     Default = 16,
+    Postfix = "Walkspeed",
     Callback = function(value)
         if lplr and lplr.Character and lplr.Character:FindFirstChild("Humanoid") then
             lplr.Character.Humanoid.WalkSpeed = value
@@ -29,7 +29,7 @@ local walkchanger = Section:Slider({
 
 local noclip
 local phase = Section:Toggle({
-    Name = "Noclip",
+    Text = "Noclip",
     Default = false,
     Callback = function(value)
         if value then
@@ -53,7 +53,7 @@ local phase = Section:Toggle({
 
 local antiafkconn
 local antiafk = Section:Toggle({
-    Name = "antiafk",
+    Text = "antiafk",
     Default = false,
     Callback = function(value)
         if value then
@@ -80,7 +80,7 @@ local antiafk = Section:Toggle({
 })
 
 local reset = Section:Button({
-    Name = "Reset",
+    Text = "Reset",
     callback = function(value)
         if lplr and lplr.Character then
             lplr.Character:BreakJoints()
@@ -88,4 +88,4 @@ local reset = Section:Button({
     end
 })
 
-Window:Initialize()
+Tab:Select()
