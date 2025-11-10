@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Rain-Design/PPHUD/main/Library.lua'))()
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/anon1ymousUser/Cracs-Roblox/refs/heads/main/lib.lua'))()
 local lplr = game.Players.LocalPlayer
 local Window = Library:Window({
 	Text = "cracs",
