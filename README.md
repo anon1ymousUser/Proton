@@ -17,6 +17,7 @@ Your all-in-one script for every utility, feature, and enhancement you’ll ever
 > - Breaking these terms will result in termination of your rights ⚠️ and may lead to legal action ⚖️.
 > - The Software is provided “AS IS” 🛠️ with no guarantees—use at your own risk ❗
 
+
 > [!TIP]
 > - Visit the Discussions tab or join the Discord for questions and support!
 > - Make tutorials, showcases, reviews, or cool demonstrations of the script for FREE premium access 💸
