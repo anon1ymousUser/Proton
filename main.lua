@@ -1,7 +1,7 @@
-local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/anon1ymousUser/Cracs-Roblox/refs/heads/main/lib.lua'))()
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/anon1ymousUser/Proton/refs/heads/main/lib.lua'))()
 local lplr = game.Players.LocalPlayer
 local Window = Library:Window({
-	Text = "cracs",
+	Text = "Proton",
 })
 
 local Tab = Window:Tab({
