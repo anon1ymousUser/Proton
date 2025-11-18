@@ -5,7 +5,7 @@
 # Loadstring
 
 ```lua
---not yet 🤑
+--soon™️
 ```
 
 # The Proton Project
