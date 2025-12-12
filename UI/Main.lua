@@ -18,6 +18,7 @@ local Workspace = game:GetService("Workspace")
 local HttpService = game:GetService("HttpService")
 local lplr = Players.LocalPlayer
 
+
 local Config = {}
 api.Config.CanSave = true
 local FilePath = 'Proton/Configs/' .. game.PlaceId .. '.json'
@@ -47,7 +48,7 @@ local THEME = {
 	FontBold = Font.fromEnum(Enum.Font.GothamBold)
 }
 
-local SIDEBAR = {Collapsed = 82, Expanded = 200, TweenTime = 0.17, TopMargin = 40, BottomMargin = 40}
+local SIDEBAR = {Collapsed = 82, Expanded = 232, TweenTime = 0.17, TopMargin = 40, BottomMargin = 40}
 
 local fontsize = Instance.new('GetTextBoundsParams')
 fontsize.Width = math.huge
@@ -196,7 +197,7 @@ contentArea.Parent = mainWindow
 local sidebar = Instance.new("Frame")
 sidebar.Name = "AttachedSidebar"
 sidebar.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-sidebar.BackgroundTransparency = 0.11
+sidebar.BackgroundTransparency = 0.22
 sidebar.ZIndex = 0
 sidebar.BorderSizePixel = 0
 addCorner(sidebar, UDim.new(0, 12))
@@ -842,6 +843,7 @@ function api:CreateTab(tabsettings)
         moduleapi.Listening = false
         resizeKeyButton()
 
+        -- Save the new keybind
         Config[moduleapi.Name].Keybind = moduleapi.KeyBind
         task.delay(0.01, function()
             api.Config:Save_Config()
@@ -893,6 +895,14 @@ local saved = Config[moduleapi.Name]
 
 		mod.AutomaticSize = Enum.AutomaticSize.Y
 		modulebkg.AutomaticSize = Enum.AutomaticSize.Y
+
+		local function makeSignal()
+			local listeners = {}
+			return {
+				Connect = function(_, fn) table.insert(listeners, fn); return {Disconnect = function() for i,v in ipairs(listeners) do if v==fn then table.remove(listeners,i); break end end end} end,
+				Fire = function(_, ...) for _, fn in ipairs(listeners) do task.spawn(fn, ...) end end
+			}
+		end
 
 		local function createRow(name, height)
 			local row = Instance.new("Frame")
@@ -979,6 +989,8 @@ local saved = Config[moduleapi.Name]
 
 				valueBox.Text = tostring(math.floor(raw))
 
+				--[[if onChange then pcall(onChange, raw) end
+				signal:Fire(raw)]]
                 Config[moduleapi.Name].Sliders[sliderapi.Name] = currentValue
 				task.delay(0.01, function() api.Config:Save_Config() end)
 			end
@@ -1217,6 +1229,9 @@ local saved = Config[moduleapi.Name]
 							caret.Rotation = 0
 						end)
 
+						--[[if onSelect then pcall(onSelect, opt) end
+						signal:Fire(opt)]]
+
                         Config[moduleapi.Name].Dropdowns[dropdownsettings.Name] = opt
 						task.delay(0.01, function() api.Config:Save_Config() end)
 					end)
@@ -1300,6 +1315,8 @@ local saved = Config[moduleapi.Name]
 
 			local signal = makeSignal()
 			txt.FocusLost:Connect(function(enterPressed)
+				--[[if enterPressed and onEnter then pcall(onEnter, txt.Text) end
+				signal:Fire(txt.Text)]]
 			end)
 
 			local api = {
@@ -1434,10 +1451,12 @@ local settings = api:CreateTab({
 })
 
 home:CreateModule({
-	Name = "Uninject",
+	Name= "Uninject",
+
     Function = function(callback)
-    	
+    
     end
+
 })
 
 Fly = home:CreateModule({
@@ -1480,9 +1499,10 @@ Fly:CreateTextbox({
 	end
 })]]
 
+
 updateSidebarInstant(SIDEBAR.Collapsed)
 setAllLabels(false)
 
 shared.Proton = api
-					
+
 return api 
