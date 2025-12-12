@@ -979,8 +979,6 @@ local saved = Config[moduleapi.Name]
 
 				valueBox.Text = tostring(math.floor(raw))
 
-				--[[if onChange then pcall(onChange, raw) end
-				signal:Fire(raw)]]
                 Config[moduleapi.Name].Sliders[sliderapi.Name] = currentValue
 				task.delay(0.01, function() api.Config:Save_Config() end)
 			end
@@ -1219,9 +1217,6 @@ local saved = Config[moduleapi.Name]
 							caret.Rotation = 0
 						end)
 
-						--[[if onSelect then pcall(onSelect, opt) end
-						signal:Fire(opt)]]
-
                         Config[moduleapi.Name].Dropdowns[dropdownsettings.Name] = opt
 						task.delay(0.01, function() api.Config:Save_Config() end)
 					end)
@@ -1305,8 +1300,6 @@ local saved = Config[moduleapi.Name]
 
 			local signal = makeSignal()
 			txt.FocusLost:Connect(function(enterPressed)
-				--[[if enterPressed and onEnter then pcall(onEnter, txt.Text) end
-				signal:Fire(txt.Text)]]
 			end)
 
 			local api = {
