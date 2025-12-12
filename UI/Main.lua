@@ -894,14 +894,6 @@ local saved = Config[moduleapi.Name]
 		mod.AutomaticSize = Enum.AutomaticSize.Y
 		modulebkg.AutomaticSize = Enum.AutomaticSize.Y
 
-		local function makeSignal()
-			local listeners = {}
-			return {
-				Connect = function(_, fn) table.insert(listeners, fn); return {Disconnect = function() for i,v in ipairs(listeners) do if v==fn then table.remove(listeners,i); break end end end} end,
-				Fire = function(_, ...) for _, fn in ipairs(listeners) do task.spawn(fn, ...) end end
-			}
-		end
-
 		local function createRow(name, height)
 			local row = Instance.new("Frame")
 			row.Name = name and name or "Row"
