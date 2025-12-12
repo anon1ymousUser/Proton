@@ -1498,4 +1498,6 @@ Fly:CreateTextbox({
 updateSidebarInstant(SIDEBAR.Collapsed)
 setAllLabels(false)
 
+shared.Proton = api
+					
 return api 
