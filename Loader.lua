@@ -73,7 +73,7 @@ local gui = readfile('Proton/UI/UI.txt')
 loadstring(game:HttpGet("https://raw.githubusercontent.com/anon1ymousUser/Proton/refs/heads/main/libs/Whitelist.lua", true))()
 local ProtonUI = loadstring(downloadFile('Proton/UI/'..gui..'.lua'), 'gui')()
 local Proton = shared.Proton
---loadstring(downloadFile('Proton/Games/Universal.lua'), 'Universal')()
+loadstring(downloadFile('Proton/Games/Universal.lua'), 'Universal')()
 	if isfile('Proton/Games/'..game.PlaceId..'.lua') then
 		loadstring(readfile('Proton/Games/'..game.PlaceId..'.lua'), tostring(game.PlaceId))(...)
 	else
