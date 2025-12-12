@@ -1449,12 +1449,10 @@ local settings = api:CreateTab({
 })
 
 home:CreateModule({
-	Name= "Uninject",
-
+	Name = "Uninject",
     Function = function(callback)
-    
+    	
     end
-
 })
 
 Fly = home:CreateModule({
