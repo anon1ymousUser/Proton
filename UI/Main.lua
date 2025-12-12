@@ -843,7 +843,6 @@ function api:CreateTab(tabsettings)
         moduleapi.Listening = false
         resizeKeyButton()
 
-        -- Save the new keybind
         Config[moduleapi.Name].Keybind = moduleapi.KeyBind
         task.delay(0.01, function()
             api.Config:Save_Config()
@@ -989,8 +988,6 @@ local saved = Config[moduleapi.Name]
 
 				valueBox.Text = tostring(math.floor(raw))
 
-				--[[if onChange then pcall(onChange, raw) end
-				signal:Fire(raw)]]
                 Config[moduleapi.Name].Sliders[sliderapi.Name] = currentValue
 				task.delay(0.01, function() api.Config:Save_Config() end)
 			end
@@ -1229,9 +1226,6 @@ local saved = Config[moduleapi.Name]
 							caret.Rotation = 0
 						end)
 
-						--[[if onSelect then pcall(onSelect, opt) end
-						signal:Fire(opt)]]
-
                         Config[moduleapi.Name].Dropdowns[dropdownsettings.Name] = opt
 						task.delay(0.01, function() api.Config:Save_Config() end)
 					end)
@@ -1263,7 +1257,6 @@ local saved = Config[moduleapi.Name]
 						if v == opt then
 							currentIndex = i
 							selectedLabel.Text = opt
-							--if onSelect then pcall(onSelect, opt) end
 							break
 						end
 					end
@@ -1315,8 +1308,6 @@ local saved = Config[moduleapi.Name]
 
 			local signal = makeSignal()
 			txt.FocusLost:Connect(function(enterPressed)
-				--[[if enterPressed and onEnter then pcall(onEnter, txt.Text) end
-				signal:Fire(txt.Text)]]
 			end)
 
 			local api = {
@@ -1409,7 +1400,6 @@ end
 
 home = api:CreateTab({
 	Name="Home",
-	--Icon="rbxassetid://80672884480885",
 	Icon="rbxassetid://75277775223347",
 	ActiveIcon="rbxassetid://75277775223347"
 })
@@ -1417,13 +1407,11 @@ home = api:CreateTab({
 createCategoryHeader("Combat")
 local combat = api:CreateTab({
 	Name="Combat",
-	--Icon="rbxassetid://118874077670710",
 	Icon = "rbxassetid://95536289898968",
 	ActiveIcon = "rbxassetid://95536289898968"
 })
 local legit = api:CreateTab({
 	Name="Legit",
-	--Icon="rbxassetid://105075268072533",
 	Icon = "rbxassetid://125282530777725",
 	ActiveIcon = "rbxassetid://125282530777725"
 })
@@ -1431,21 +1419,18 @@ local legit = api:CreateTab({
 createCategoryHeader("Visuals")
 local world = api:CreateTab({
 	Name="World",
-	--Icon="rbxassetid://101211606227796",
 	Icon = "rbxassetid://101211606227796",
 	ActiveIcon = "rbxassetid://101211606227796"
 })
 local player = api:CreateTab({
 	Name="Player",
 	Icon = "rbxassetid://92144768914590",
-	--Icon="rbxassetid://86182948083353",
 	ActiveIcon = "rbxassetid://92144768914590"
 })
 
 createCategoryHeader("Misc")
 local settings = api:CreateTab({
 	Name="Settings",
-	--Icon="rbxassetid://107630719107618",
 	Icon = "rbxassetid://117353800875058",
 	ActiveIcon = "rbxassetid://117353800875058"
 })
