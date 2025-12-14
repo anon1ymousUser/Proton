@@ -44,7 +44,7 @@ local function downloadFile(path, func)
 end
 local loadstring = function(...)
 	local res, err = loadstring(...)
-	if err and vape then
+	if err and Proton then
 		API:CreateNotification('Proton', 'Failed to load : '..err, 30)
 	end
 	return res
