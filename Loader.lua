@@ -70,7 +70,7 @@ if not isfile('Proton/UI/UI.txt') then
 	writefile('Proton/UI/UI.txt', 'Main')
 end
 local gui = readfile('Proton/UI/UI.txt')
-loadstring(game:HttpGet("https://raw.githubusercontent.com/anon1ymousUser/Proton/refs/heads/main/libs/Whitelist.lua", true))()
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/anon1ymousUser/Proton/refs/heads/main/libs/Whitelist.lua", true))()
 local ProtonUI = loadstring(downloadFile('Proton/UI/'..gui..'.lua'), 'gui')()
 local Proton = shared.Proton
 loadstring(downloadFile('Proton/Games/Universal.lua'), 'Universal')()
