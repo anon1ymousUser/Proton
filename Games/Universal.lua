@@ -62,7 +62,7 @@ local SpeedValue
 local SpeedMode
 local SpeedSlider
 local oldSpeed
-Speed = Proton.Categories.Home:CreateModule({
+Speed = Proton.Tabs.Home:CreateModule({
     Name = 'Speed',
     Legit = false,
     Function = function(called)
