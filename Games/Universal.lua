@@ -49,9 +49,6 @@ local textChatService = cloneref(game:GetService('TextChatService'))
 local contextService = cloneref(game:GetService('ContextActionService'))
 local coreGui = cloneref(game:GetService('CoreGui'))
 
-local isnetworkowner = identifyexecutor and table.find({'Volt'}, ({identifyexecutor()})[1]) and isnetworkowner or function()
-	return true
-end
 local gameCamera = workspace.CurrentCamera or workspace:FindFirstChildWhichIsA('Camera')
 local lplr = playersService.LocalPlayer
 local assetfunction = getcustomasset
