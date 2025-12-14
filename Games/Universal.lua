@@ -56,3 +56,40 @@ local assetfunction = getcustomasset
 local Proton = shared.Proton
 
 
+task.spawn(function()
+local Speed
+local SpeedValue
+local SpeedMode
+local SpeedSlider
+local oldSpeed
+Speed = Proton.Categories.Home:CreateModule({
+    Name = 'Speed',
+    Legit = false,
+    Function = function(called)
+        if called then
+                SpeedCon = runService.Heartbeat:Connect(function(deltaTime)
+                    if SpeedMode.Get() == "CFrame" then
+                        lplr.Character.PrimaryPart.CFrame += (lplr.Character.Humanoid.MoveDirection * SpeedValue.Get()) * deltaTime
+                    elseif SpeedMode.Get() == "Velocity" then
+                        lplr.Character.PrimaryPart.Velocity = Vector3.new(lplr.Character.Humanoid.MoveDirection.X * SpeedValue.Get(), lplr.Character.PrimaryPart.Velocity.Y, lplr.Character.Humanoid.MoveDirection.Z * SpeedValue.Get())
+                    end
+                end)
+            else
+                SpeedCon:Disconnect()
+        end
+    end,
+    Description = 'Customizes player speed',
+})
+SpeedValue = Speed:CreateSlider({
+    Name = 'Value',
+    Legit = false,
+    Default = 50,
+    min = 1,
+    max = 100
+})
+SpeedMode = Speed:CreateDropdown({
+	Name = 'Mode',
+	Default = 'Velocity',
+	Options = {"Velocity", "Cframe", "Pulse"}
+})
+end)
