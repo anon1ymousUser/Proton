@@ -83,8 +83,8 @@ Speed = Proton.Tabs.Home:CreateModule({
 SpeedValue = Speed:CreateSlider({
     Name = 'Value',
     Default = 50,
-    min = 1,
-    max = 100
+    Min = 1,
+    Max = 100
 })
 SpeedMode = Speed:CreateDropdown({
 	Name = 'Mode',
