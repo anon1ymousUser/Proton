@@ -79,14 +79,10 @@ loadstring(downloadFile('Proton/Games/Universal.lua'), 'Universal')()
 	else
 		if not shared.ProtonDeveloper then
 			local suc, res = pcall(function()
-				return game:HttpGet('https://raw.githubusercontent.com/anon1ymousUser/Proton/'..readfile('Proton/Libs/commit.txt')..'/games/'..game.PlaceId..'.lua', true)
+				return game:HttpGet('https://raw.githubusercontent.com/anon1ymousUser/Proton/'..readfile('Proton/Libs/commit.txt')..'/Games/'..game.PlaceId..'.lua', true)
 			end)
 			if suc and res ~= '404: Not Found' then
 				loadstring(downloadFile('Proton/Games/'..game.PlaceId..'.lua'), tostring(game.PlaceId))(...)
-			end
 		end
 	end
-Proton.Load.Loaded = true
-Proton.Load.Time = os.clock() - Proton.Load.Start
-local LoadTime: string = string.format("%.1fs", Proton.Load.Time)
-Proton:CreateNotification("Proton", "Loaded in " .. LoadTime, 2)
+end
