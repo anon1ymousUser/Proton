@@ -5,7 +5,7 @@
 # Loadstring
 
 ```lua
---soon™️
+--soon
 ```
 
 # The Proton Project
@@ -21,7 +21,7 @@ Your all-in-one script for every utility, feature, and enhancement you’ll ever
 > [!TIP]
 > - Visit the Discussions tab or join the Discord for questions and support!
 > - Make tutorials, showcases, reviews, or cool demonstrations of the script for FREE premium access 💸
-> - You can also become a contributor—good contributions earn FREE premium access 🛠️
+> - You can also become a contributor—good contributions earn our RESPECT 🛠️
 
 # Contact Us
 [Discord](https://discord.gg/Q6KEfgt4)
