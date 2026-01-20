@@ -7,7 +7,7 @@ local BASE_URL = "https://raw.githubusercontent.com/anon1ymousUser/Proton/"
 local commit = readfile(ROOT.."/Profiles/commit.txt")
 
 local VALID_KEYS = {
-    "check"
+    "check" = true
 }
 
 -- getgenv().PROTON_KEY = "your-key-here"
