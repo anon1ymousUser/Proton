@@ -124,4 +124,4 @@ end
 genv.ProtonLoaded = true
 loadstring(clientSource)()
 
-warn("loader worked no errors")
+print("loader worked no errors")
