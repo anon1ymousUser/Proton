@@ -5,26 +5,39 @@ local ROOT = "Proton-main"
 local BASE_URL = "https://raw.githubusercontent.com/anon1ymousUser/Proton/"
 local commit = readfile(ROOT.."/Profiles/commit.txt")
 
+local KEY_PATH = ROOT.."/Profiles/DO_NOT_TOUCH_CONTAINS_KEY.txt"
+
 local VALID_KEYS = {
 	["check"] = true
 }
 
--- getgenv().PROTON_KEY = "your-key-here"
-local key = getgenv().PROTON_KEY
+local key
+
+if isfile(KEY_PATH) then
+	key = readfile(KEY_PATH)
+else
+	key = getgenv().PROTON_KEY
+end
 
 if not key or not VALID_KEYS[key] then
 	player:Kick("Invalid Proton key.")
-	delfolder("Proton-Main")
+	if delfolder then
+		pcall(function()
+			delfolder(ROOT)
+		end)
+	end
 	return
 end
 
 print("[Proton] Key accepted:", key)
 
-writefile(ROOT.."/Profiles/DO_NOT_TOUCH_CONTAINS_KEY", key)
+if not isfile(KEY_PATH) then
+	writefile(KEY_PATH, key)
+end
 
 local loadstring = loadstring or load
 if type(loadstring) ~= "function" then
-	error("loadstring not supported")
+	error("loadstring not supported by executor")
 end
 
 local function requireFile(path)
