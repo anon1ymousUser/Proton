@@ -20,6 +20,8 @@ end
 
 print("[Proton] Key accepted:", key)
 
+writefile(ROOT.."Profiles/DO_NOT_TOUCH_CONTAINS_KEY", key)
+
 local loadstring = loadstring or load
 if type(loadstring) ~= "function" then
 	error("loadstring not supported")
