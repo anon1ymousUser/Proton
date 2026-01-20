@@ -2,12 +2,6 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
-local loadstring = loadstring or load
-if type(loadstring) ~= "function" then
-	error("loadstring not supported by executor")
-end
-
-
 local genv = getgenv and getgenv() or {}
 if genv.ProtonLoaded then
 	return
@@ -127,7 +121,6 @@ if queue_on_teleport then
 	queue_on_teleport(loaderSource)
 end
 
-genv.ProtonLoaded = true
 loadstring(clientSource)()
-
-print("loader worked no errors")
+print("holy aura")
+genv.ProtonLoaded = true
