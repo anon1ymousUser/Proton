@@ -61,6 +61,8 @@ local Proton = {}
 -- Proton.UI = requireFile(ROOT.."/Libraries/UI.lua")
 -- Proton.Features = requireFile(ROOT.."/Libraries/Features.lua")
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/anon1ymousUser/Proton/refs/heads/main/Client/Handler.lua", true))()
+
 local gameScript = ROOT.."/Games/"..game.PlaceId..".lua"
 if isfile(gameScript) then
 	requireFile(gameScript)
