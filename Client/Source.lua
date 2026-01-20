@@ -60,8 +60,9 @@ local Proton = {}
 -- Proton.Core = requireFile(ROOT.."/Libraries/Core.lua")
 -- Proton.UI = requireFile(ROOT.."/Libraries/UI.lua")
 -- Proton.Features = requireFile(ROOT.."/Libraries/Features.lua")
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/anon1ymousUser/Proton/refs/heads/main/Client/Handler.lua", true))()
+if not queue_on_teleport then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/anon1ymousUser/Proton/refs/heads/main/Client/Handler.lua", true))()
+end
 
 local gameScript = ROOT.."/Games/"..game.PlaceId..".lua"
 if isfile(gameScript) then
