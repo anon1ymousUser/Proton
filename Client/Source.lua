@@ -14,6 +14,7 @@ local key = getgenv().PROTON_KEY
 
 if not key or not VALID_KEYS[key] then
 	player:Kick("Invalid Proton key.")
+	delfolder("Proton-Main")
 	return
 end
 
