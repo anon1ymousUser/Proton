@@ -121,6 +121,5 @@ if queue_on_teleport then
 	queue_on_teleport(loaderSource)
 end
 
-loadstring(clientSource)()
-print("holy aura")
 genv.ProtonLoaded = true
+loadstring(clientSource)()
