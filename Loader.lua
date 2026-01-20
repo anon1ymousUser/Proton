@@ -2,6 +2,12 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
+local loadstring = loadstring or load
+if type(loadstring) ~= "function" then
+	error("loadstring not supported by executor")
+end
+
+
 local genv = getgenv and getgenv() or {}
 if genv.ProtonLoaded then
 	return
