@@ -8,7 +8,7 @@
 --soon
 ```
 
-# The Proton Project
+# NEXUS
 
 Your all-in-one script for every utility, feature, and enhancement you’ll ever need — fast, modern, and designed to level up your entire experience.
 
@@ -24,4 +24,4 @@ Your all-in-one script for every utility, feature, and enhancement you’ll ever
 > - You can also become a contributor—good contributions earn our RESPECT 🛠️
 
 # Contact Us
-[Discord](https://discord.gg/Q6KEfgt4)
+[Discord](https://discord.gg/2ff2xZKunw)
